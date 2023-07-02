@@ -13,7 +13,7 @@ export const authOptions = {
       clientId: process.env.DISCORD_CLIENT_ID,
       clientSecret: process.env.DISCORD_CLIENT_SECRET,
       authorization: {params: {scope: scopes}},
-      //secret: process.env.NEXTAUTH_SECRET,
+      secret: process.env.NEXTAUTH_SECRET,
     }),
     GitHubProvider({
       clientId: process.env.GITHUB_ID,

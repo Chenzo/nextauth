@@ -11,6 +11,13 @@ export default function TWO() {
   return (
     <div className={styles.container}>
       Page 2
+
+      <p>
+      <a href="/three">THREE</a>
+      </p>
+      <p>
+      <a href="/">HOME</a>
+      </p>
     </div>
   )
 }

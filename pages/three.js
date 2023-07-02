@@ -1,35 +1,28 @@
-import styles from '@/styles/Home.module.css'
-import { useSession, signIn, signOut } from "next-auth/react"
 import { getServerSession } from "next-auth/next"
-import { authOptions } from "./api/auth/[...nextauth]"; 
+import { authOptions } from "./api/auth/[...nextauth]"
+import { useSession } from "next-auth/react"
 
-
-/* export async function getServerSideProps({req, res, authOptions}) {
-    console.log("getServerSideProps!!");
-    const session = await getServerSession(req, res, authOptions)
+export default function Page() {
+  const { data: session } = useSession()
 
     console.log(session);
-    return {
-        props: {
-            session: await getServerSession(req, res, authOptions)
-        }
-    }
+
+    return (
+        <div>
+            <h1>We're here</h1>
+            <a href="/two">two</a>
+      </div>
+    )
 }
- */
 
-export default function THREE() {
-
-    /* console.log("--- inside THREE");
-    console.log(session); */
-
-  const { data: clientSession } = useSession();
-
-  console.log("--- inside clientSession 3");
-  console.log(clientSession);
-
-  return (
-    <div className={styles.container}>
-      Page 3 - can we get the data on the server side? 
-    </div>
-  )
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      session: await getServerSession(
+        context.req,
+        context.res,
+        authOptions
+      ),
+    },
+  }
 }
