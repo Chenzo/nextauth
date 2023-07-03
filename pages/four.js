@@ -3,20 +3,21 @@ import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function TWO() {
 
-  const { data: session } = useSession();
+  const { data: session, token } = useSession();
 
   console.log("--- inside SESSION 2");
   console.log(session);
+  console.log(token);
 
   return (
     <div className={styles.container}>
-      Page 2
+      <h1>Page 4</h1>
 
       <p>
-      <a href="/three">THREE</a>
+      <a href="/two">two</a>
       </p>
       <p>
-      <a href="/four">FOUR</a>
+      <a href="/three">three</a>
       </p>
       <p>
       <a href="/">HOME</a>

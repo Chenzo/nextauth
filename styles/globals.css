@@ -97,7 +97,7 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -105,3 +105,9 @@ a {
     color-scheme: dark;
   }
 }
+
+
+p {
+  padding: 10px;
+}
+

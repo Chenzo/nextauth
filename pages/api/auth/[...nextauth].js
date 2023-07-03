@@ -19,6 +19,13 @@ export const authOptions = {
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET
     })
-  ]
+  ],
+  callbacks: {
+    async session({ session, token, user }) {
+      //session.accessToken = token.accessToken
+      session.user.discordId = token.sub
+      return session
+    }
+  }
 }
 export default NextAuth(authOptions)
